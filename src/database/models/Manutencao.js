@@ -3,11 +3,11 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Diagnostico extends Model {
+  class Manutencao extends Model {
     static associate(models) {
-      Diagnostico.belongsTo(models.Ativo, {
+      Manutencao.belongsTo(models.Ativo, {
         foreignKey: 'ativoId',
-        as: 'ativo'
+        as: 'ativo' 
       });
       Manutencao.belongsTo(models.User, {
         foreignKey: 'userId',
@@ -15,17 +15,16 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  Diagnostico.init({
+  Manutencao.init({
     id: DataTypes.INTEGER,
     ativoId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     report: DataTypes.STRING,
-    materials: DataTypes.STRING,
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'Diagnostico',
+    modelName: 'Manutencao',
   });
-  return Diagnostico;
+  return Manutencao;
 };
