@@ -6,9 +6,9 @@ class UserController {
 
         try {
 
-            const {name, password, confirm_password, ra, email, image} = req.body;
+            const {name, password, confirm_password, cpf, email, image} = req.body;
 
-            const result = await UserService.createUserWithEncryptedPassword(name, password, ra, email, image, confirm_password);
+            const result = await UserService.createUserWithEncryptedPassword(name, password, cpf, email, image, confirm_password);
 
             return res.status(result.status).json(result.data)
 
