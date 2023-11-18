@@ -18,8 +18,16 @@ module.exports = (sequelize, DataTypes) => {
     department: DataTypes.STRING,
     location: DataTypes.STRING,
     manufacturingDate: DataTypes.DATE,
-    createdAt: DataTypes.DATE,
-    updatedAt: DataTypes.DATE
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      allowNull: false,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+      allowNull: false,
+    }
   }, {
     sequelize,
     modelName: 'Ativo',
