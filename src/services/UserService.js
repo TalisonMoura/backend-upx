@@ -7,13 +7,13 @@ class UserService extends ResponseTrait {
     /**
      * @param name
      * @param password
-     * @param ra
+     * @param cpf
      * @param email
      * @param image
      * @param confirm_password
      * @returns {Promise<{data: {ok: boolean, message: string}, status: number}>}
      */
-    async createUserWithEncryptedPassword(name, password, ra, email, image, confirm_password) {
+    async createUserWithEncryptedPassword(name, password, cpf, email, image, confirm_password) {
 
         if (!name || !password || !email || !confirm_password) {
 
@@ -47,7 +47,7 @@ class UserService extends ResponseTrait {
         await UserRepository.createUser(
             name,
             hashedPassword,
-            ra,
+            cpf,
             email,
             image,
             null

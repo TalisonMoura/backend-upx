@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     User.init({
         name: DataTypes.STRING,
         password: DataTypes.STRING,
-        ra: {type: DataTypes.STRING, allowNull: true},
+        cpf: {type: DataTypes.STRING, allowNull: false},
         email: DataTypes.STRING,
         image: {type: DataTypes.STRING, allowNull: true},
         user_types_id: DataTypes.INTEGER,

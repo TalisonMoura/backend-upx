@@ -4,18 +4,18 @@ class UserRepository {
     /**
      * @param name
      * @param password
-     * @param ra
+     * @param cpf
      * @param email
      * @param image
      * @param googleId
      * @returns {Promise<Model<any, TModelAttributes>>}
      */
-    async createUser(name, password, ra, email, image, googleId) {
+    async createUser(name, password, cpf, email, image, googleId) {
 
         return await User.create({
             name,
             password,
-            ra,
+            cpf,
             email,
             image,
             googleId
