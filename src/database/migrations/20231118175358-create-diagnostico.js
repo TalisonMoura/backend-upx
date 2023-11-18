@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Ativo', {
+    await queryInterface.createTable('Diagnostico', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,28 +12,13 @@ module.exports = {
       id: {
         type: Sequelize.INTEGER
       },
-      name: {
+      ativoId: {
+        type: Sequelize.INTEGER
+      },
+      report: {
         type: Sequelize.STRING
       },
-      numserie: {
-        type: Sequelize.STRING
-      },
-      manufacturer: {
-        type: Sequelize.STRING
-      },
-      tipo: {
-        type: Sequelize.STRING
-      },
-      model: {
-        type: Sequelize.STRING
-      },
-      manufacturingdate: {
-        type: Sequelize.DATE
-      },
-      department: {
-        type: Sequelize.STRING
-      },
-      location: {
+      materials: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -53,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Ativo');
+    await queryInterface.dropTable('Diagnostico');
   }
 };
