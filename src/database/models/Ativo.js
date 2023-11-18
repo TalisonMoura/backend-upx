@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     manufacturer: DataTypes.STRING,
     tipo: DataTypes.STRING,
     model: DataTypes.STRING,
-    manufacturingdate: DataTypes.DATE,
+    manufacturingDate: DataTypes.DATE,
     department: DataTypes.STRING,
     location: DataTypes.STRING,
     createdAt: DataTypes.DATE,

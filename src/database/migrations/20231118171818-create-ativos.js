@@ -27,7 +27,7 @@ module.exports = {
       model: {
         type: Sequelize.STRING
       },
-      manufacturingdate: {
+      manufacturingDate: {
         type: Sequelize.DATE
       },
       department: {
