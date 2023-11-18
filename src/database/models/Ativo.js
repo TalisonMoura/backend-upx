@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ativo.init({
     id: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     name: DataTypes.STRING,
     numserie: DataTypes.STRING,
     manufacturer: DataTypes.STRING,
