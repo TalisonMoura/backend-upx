@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "migrate-update": "npx sequelize-cli db:migrate",
+    "migrate-undone": "npx sequelize-cli db:migrate:undo"
   },
   "author": "",
   "license": "ISC",

@@ -3,11 +3,11 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Ativos extends Model {
+  class Ativo extends Model {
     static associate(models) {
     }
   }
-  Ativos.init({
+  Ativo.init({
     id: DataTypes.INTEGER,
     name: DataTypes.STRING,
     numserie: DataTypes.STRING,
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'Ativos',
+    modelName: 'Ativo',
   });
-  return Ativos;
+  return Ativo;
 };
