@@ -13,33 +13,35 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       numserie: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       manufacturer: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       tipo: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       model: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      manufacturingDate: {
-        type: Sequelize.DATE
-      },
       department: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       location: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      createdAt: {
-        type: Sequelize.DATE
-      },
-      updatedAt: {
+      manufacturingDate: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       createdAt: {
