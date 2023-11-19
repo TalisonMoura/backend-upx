@@ -1,14 +1,16 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, Sequelize } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Ativo extends Model {
     static associate(models) {
     }
   }
   Ativo.init({
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     userId: DataTypes.INTEGER,
     name: DataTypes.STRING,
     numserie: DataTypes.STRING,
