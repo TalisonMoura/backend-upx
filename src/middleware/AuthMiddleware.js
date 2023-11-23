@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const config = require("../config/Auth");
-const BlackListRepository = require('../repositories/BlackListRepository');
 
 const {promisify} = require('util');
 
@@ -30,18 +29,9 @@ module.exports = async (req, res, next) => {
             });
         }
 
-        if (await BlackListRepository.findByToken(token)) {
 
-            return res.status(401).json({
-                code: 130,
-                error: "You're not logged"
-            });
-
-        } else {
-
-            req.user_id = decode.id;
-            next();
-        }
+        req.user_id = decode.id;
+        next();
 
     } catch (error) {
         if (error.name === 'TokenExpiredError') {

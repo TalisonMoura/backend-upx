@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt');
 const UserRepository = require('../repositories/UserRepository');
-const BlackListRepository = require('../repositories/BlackListRepository');
 const AuthTrait = require('../traits/AuthTrait');
 
 class LoginService extends AuthTrait {
