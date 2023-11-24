@@ -17,6 +17,18 @@ class DiagnosticoRepository {
             materials
         });
     }
+
+    async getAllDisgnostico(ativoId) 
+    {
+        const diagnosticos =  await Diagnostico.findAll({
+            attributes: [
+                [Diagnostico.sequelize.fn('DISTINC', Diagnostico.sequelize.col('ativoId')), 'ativoId']
+            ],
+            where: ativoId ? { ativoId } : {},
+            raw: true,
+        });
+        return diagnosticos.map((x) => x.ativoId)
+    }
 }
 
 module.exports = new DiagnosticoRepository();

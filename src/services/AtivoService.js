@@ -26,6 +26,21 @@ class AtivoService extends ResponseTrait
         await AtivoRepository.createAtivo(userId, name, numserie, manufacturer, tipo, model, department, location, manufacturingDate);
         return this.responseSuccessCreated('Ativo criado com sucesso');
     }
+
+    async getAtivoById(id)
+    {
+        if(!id)
+        {
+            return this.responseRequiredFields();
+        }
+        
+        const result = await AtivoRepository.getAtivoById(id);
+        if(result === null)
+        {
+            return this.responseAtivoNotFound();
+        }
+        return 
+    }
 }
 
 module.exports = new AtivoService();

@@ -27,6 +27,15 @@ class AtivoRepository {
             manufacturingDate
         });
     }
+
+    async getAtivoById(id) {
+        const ativo = await Ativo.findOne({
+            where: {
+                id: id,
+            },
+        });
+        return ativo;
+    }
 }
 
 module.exports = new AtivoRepository();

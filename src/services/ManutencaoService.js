@@ -20,6 +20,21 @@ class ManutencaoService extends ResponseTrait
         await ManutencaoRepository.createDiagnostico(ativoId, userId, report)
         return this.responseSuccessCreated('Manutenção criada com sucesso');
     }
+
+    async getAllManutencao(ativoId)
+    {
+        if(!ativoId)
+        {
+            return this.responseRequiredFields();
+        }
+
+        const result = ManutencaoRepository.getAllDisgnostico(ativoId)
+        if (result === null) 
+        {
+            return this.responseManutencaoNotFound();
+        }
+        return result;
+    }
 }
 
 module.exports = new ManutencaoService();

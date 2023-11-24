@@ -21,6 +21,21 @@ class DiagnosticoService extends ResponseTrait
         await DiagnosticoRepository.createDiagnostico(ativoId, userId, report, materials)
         return this.responseSuccessCreated('Diagnostico criado com sucesso');
     }
+
+    async getAllDisgnostico(ativoId)
+    {
+        if(!ativoId)
+        {
+            return this.responseRequiredFields();
+        }
+
+        const result = DiagnosticoRepository.getAllDisgnostico(ativoId)
+        if (result === null) 
+        {
+            return this.responseDiagnosticoNotFound();
+        }
+        return result;
+    }
 }
 
 module.exports = new DiagnosticoService();

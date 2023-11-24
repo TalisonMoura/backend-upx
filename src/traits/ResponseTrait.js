@@ -69,6 +69,45 @@ module.exports = class extends ValidateTrait {
     }
 
     /**
+     * @returns {{data: {ok: false, message: string}, status: 404}}
+     */
+    responseAtivoNotFound() {
+        return {
+            status: 404,
+            data: {
+                ok: false,
+                message: "Ativo com o id especificado não foi encontrado."
+            }
+        }
+    }
+
+    /**
+     * @returns {{data: {ok: false, message: string}, status: 404}}
+     */
+    responseManutencaoNotFound() {
+        return {
+            status: 404,
+            data: {
+                ok: false,
+                message: "Manutencao com o id especificado não foi encontrado."
+            }
+        }
+    }
+
+    /**
+     * @returns {{data: {ok: false, message: string}, status: 404}}
+     */
+    responseDiagnosticoNotFound() {
+        return {
+            status: 404,
+            data: {
+                ok: false,
+                message: "Disgnostico com o id especificado não foi encontrado."
+            }
+        }
+    }
+
+    /**
      * @param {string} message
      * @returns {{data: {ok: false, message:string}, status: 401}}
      */

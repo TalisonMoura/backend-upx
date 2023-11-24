@@ -15,6 +15,18 @@ class ManutencaoRepository {
             report
         });
     }
+
+    async getAllManutencao(ativoId) 
+    {
+        const manutencoes =  await Manutencao.findAll({
+            attributes: [
+                [Manutencao.sequelize.fn('DISTINC', Manutencao.sequelize.col('ativoId')), 'ativoId']
+            ],
+            where: ativoId ? { ativoId } : {},
+            raw: true,
+        });
+        return manutencoes.map((x) => x.ativoId)
+    }
 }
 
 module.exports = new ManutencaoRepository();
