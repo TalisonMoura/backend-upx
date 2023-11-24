@@ -7,11 +7,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Ativo.init({
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      autoIncrement: true,
     },
-    userId: DataTypes.INTEGER,
+    userId: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+    },
     name: DataTypes.STRING,
     numserie: DataTypes.STRING,
     manufacturer: DataTypes.STRING,

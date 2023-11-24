@@ -13,14 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   Manutencao.init({
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      autoIncrement: true,
     },
-    ativoId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER,
+    ativoId: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+    },
+    userId: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+    },
     report: DataTypes.STRING,
     createdAt: {
       type: DataTypes.DATE,
