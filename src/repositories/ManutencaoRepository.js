@@ -7,8 +7,8 @@ class ManutencaoRepository {
      * @param report
      * @returns {Promise<Model<any, TModelAttributes>>}
      */
-    async createManutencao(ativoId, userId, report) {
-
+    async createManutencao(ativoId, userId, report) 
+    {
         return await Manutencao.create({
             ativoId,
             userId,

@@ -33,6 +33,8 @@ pids
 
 lib-cov
 
+data
+
 coverage
 
 .nyc_output
