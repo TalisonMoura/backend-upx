@@ -162,4 +162,14 @@ module.exports = class extends ValidateTrait {
             }
         }
     }
+
+    successResponse(data) {
+        return {
+            status: 200,
+            data: {
+                ok: true,
+                result: data,
+            },
+        };
+    }
 }

@@ -1,4 +1,4 @@
-const { Diagnostico } = require('../database/models/Diagnostico');
+const { Diagnostico } = require('../database/models');
 
 class DiagnosticoRepository {
     /**

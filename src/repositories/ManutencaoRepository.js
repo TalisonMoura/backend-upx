@@ -1,4 +1,4 @@
-const { Manutencao } = require('../database/models/Manutencao');
+const { Manutencao } = require('../database/models');
 
 class ManutencaoRepository {
     /**

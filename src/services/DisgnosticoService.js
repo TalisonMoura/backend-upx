@@ -34,7 +34,7 @@ class DiagnosticoService extends ResponseTrait
         {
             return this.responseDiagnosticoNotFound();
         }
-        return result;
+        return this.successResponse(result);
     }
 }
 

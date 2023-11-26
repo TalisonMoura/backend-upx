@@ -39,7 +39,8 @@ class AtivoService extends ResponseTrait
         {
             return this.responseAtivoNotFound();
         }
-        return result;
+        
+        return this.successResponse(result);
     }
 }
 

@@ -33,7 +33,7 @@ class ManutencaoService extends ResponseTrait
         {
             return this.responseManutencaoNotFound();
         }
-        return result;
+        return this.successResponse(result);
     }
 }
 
