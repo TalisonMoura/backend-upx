@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcrypt');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
       {
         id: "f2a8e1d9-1b8c-4a75-9f3d-2c7fe6e1a5d3",
         name: "Alice Johnson",
-        password: "Upx1234*",
+        password: await bcrypt.hash("Upx1234*", 8),
         cpf: "12345678901",
         email: "alice.johnson@example.com",
         image: null,
@@ -19,7 +20,7 @@ module.exports = {
       {
         id: "c9d8a7e6-4a1f-4ea1-bdd8-86512c8b14a3",
         name: "Bob Smith",
-        password: "Upx1234*",
+        password: await bcrypt.hash("Upx1234*", 8),
         cpf: "98765432109",
         email: "bob.smith@example.com",
         image: null,
@@ -31,7 +32,7 @@ module.exports = {
       {
         id: "e5f3c9d2-b1e2-4b8a-b1c1-5a3f8e6c9d2b",
         name: "Charlie Brown",
-        password: "Upx1234*",
+        password: await bcrypt.hash("Upx1234*", 8),
         cpf: "11223344556",
         email: "charlie.brown@example.com",
         image: null,
@@ -43,7 +44,7 @@ module.exports = {
       {
         id: "a8d9e5a1-2b1e-4b8a-b1c1-5a3f8e6c9d2b",
         name: "Diana Miller",
-        password: "Upx1234*",
+        password: await bcrypt.hash("Upx1234*", 8),
         cpf: "99887766554",
         email: "diana.miller@example.com",
         image: null,
@@ -55,7 +56,7 @@ module.exports = {
       {
         id: "959f4a1c-d0ef-40b1-80de-a567549a1eb3",
         name: "Elijah Davis",
-        password: "Upx1234*",
+        password: await bcrypt.hash("Upx1234*", 8),
         cpf: "76543210987",
         email: "elijah.davis@example.com",
         image: null,
@@ -67,7 +68,7 @@ module.exports = {
       {
         id: "1e2b8c5a-1d9e-4b8a-b1c1-5a3f8e6c9d2b",
         name: "Fiona White",
-        password: "Upx1234*",
+        password: await bcrypt.hash("Upx1234*", 8),
         cpf: "54321098765",
         email: "fiona.white@example.com",
         image: null,
