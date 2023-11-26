@@ -53,7 +53,7 @@ module.exports = {
         last_date_acess: new Date()
       },
       {
-        id: "b1c2a5e9-d7a1-4c8a-1e2b-8a2c-5bafce9d7a1b",
+        id: "959f4a1c-d0ef-40b1-80de-a567549a1eb3",
         name: "Elijah Davis",
         password: "Upx1234*",
         cpf: "76543210987",
