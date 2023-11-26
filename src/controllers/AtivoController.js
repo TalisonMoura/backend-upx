@@ -28,6 +28,7 @@ class AtivoController {
         const { id } = req.params;
     
         try {
+            
             const result = await AtivoService.getAtivoById(id);
     
             return res.status(result.status).json(result.data);
