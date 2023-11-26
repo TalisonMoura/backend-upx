@@ -1,4 +1,4 @@
-const { Ativo } = require('../database/models');
+const { Ativo } = require('../database/models/Ativo');
 
 class AtivoRepository {
     /**
@@ -13,7 +13,8 @@ class AtivoRepository {
      * @param manufacturingDate
      * @returns {Promise<Model<any, TModelAttributes>>}
      */
-    async createAtivo(userId, name, numserie, manufacturer, tipo, model, department, location, manufacturingDate) {
+    
+    async registerAtivo(userId, name, numserie, manufacturer, tipo, model, department, location, manufacturingDate) {
 
         return await Ativo.create({
             userId,
@@ -24,7 +25,7 @@ class AtivoRepository {
             model,
             department,
             location,
-            manufacturingDate
+            manufacturingDate,
         });
     }
 

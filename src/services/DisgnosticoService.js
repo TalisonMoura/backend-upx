@@ -1,4 +1,4 @@
-const { DiagnosticoRepository } = require('../repositories/DiagnosticoRepository');
+const DiagnosticoRepository = require('../repositories/DiagnosticoRepository');
 const ResponseTrait = require('../traits/ResponseTrait');
 
 class DiagnosticoService extends ResponseTrait 
@@ -18,7 +18,7 @@ class DiagnosticoService extends ResponseTrait
             return this.responseRequiredFields();
         }
 
-        await DiagnosticoRepository.createDiagnostico(ativoId, userId, report, materials)
+        await DiagnosticoRepository.registerDiagnostico(ativoId, userId, report, materials);
         return this.responseSuccessCreated('Diagnostico criado com sucesso');
     }
 

@@ -4,7 +4,7 @@ class AtivoController {
     
     async createAtivo(req, res) {
 
-        try {
+        try{
 
             const { userId, name, numserie, manufacturer, tipo, model, department, location, manufacturingDate } = req.body;
 

@@ -1,4 +1,4 @@
-const { AtivoRepository } = require('../repositories/AtivoRepository');
+const AtivoRepository  = require('../repositories/AtivoRepository')
 const ResponseTrait = require('../traits/ResponseTrait');
 
 class AtivoService extends ResponseTrait 
@@ -23,7 +23,7 @@ class AtivoService extends ResponseTrait
             return this.responseRequiredFields();
         }
 
-        await AtivoRepository.createAtivo(userId, name, numserie, manufacturer, tipo, model, department, location, manufacturingDate);
+        await AtivoRepository.registerAtivo(userId, name, numserie, manufacturer, tipo, model, department, location, manufacturingDate);
         return this.responseSuccessCreated('Ativo criado com sucesso');
     }
 
@@ -39,7 +39,7 @@ class AtivoService extends ResponseTrait
         {
             return this.responseAtivoNotFound();
         }
-        return 
+        return result;
     }
 }
 

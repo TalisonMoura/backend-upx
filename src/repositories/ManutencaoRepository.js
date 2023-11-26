@@ -1,4 +1,4 @@
-const { Manutencao } = require('../database/models');
+const { Manutencao } = require('../database/models/Manutencao');
 
 class ManutencaoRepository {
     /**
@@ -7,7 +7,7 @@ class ManutencaoRepository {
      * @param report
      * @returns {Promise<Model<any, TModelAttributes>>}
      */
-    async createManutencao(ativoId, userId, report) 
+    async registerManutencao(ativoId, userId, report) 
     {
         return await Manutencao.create({
             ativoId,

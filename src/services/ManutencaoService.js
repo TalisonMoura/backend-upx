@@ -1,4 +1,4 @@
-const { ManutencaoRepository } = require('../repositories/ManutencaoRepository');
+const ManutencaoRepository  = require('../repositories/ManutencaoRepository');
 const ResponseTrait = require('../traits/ResponseTrait');
 
 class ManutencaoService extends ResponseTrait 
@@ -17,7 +17,7 @@ class ManutencaoService extends ResponseTrait
             return this.responseRequiredFields();
         }
 
-        await ManutencaoRepository.createDiagnostico(ativoId, userId, report)
+        await ManutencaoRepository.registerManutencao(ativoId, userId, report)
         return this.responseSuccessCreated('Manutenção criada com sucesso');
     }
 

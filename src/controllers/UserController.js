@@ -20,7 +20,6 @@ class UserController {
                 ok: false,
                 message: 'Ocorreu um erro interno no servidor durante a criação do usuário. Entre em contato com o suporte.'
             })
-
         }
     }
 }

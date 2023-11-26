@@ -23,11 +23,6 @@ class LoginService extends AuthTrait {
             return this.responseUserNotFound();
         }
 
-        if (!user.password && user.googleId) {
-
-            return this.responseUnauthorized("Você só pode fazer login com Google. Faça login com a conta do Google associada a este email.");
-        }
-
         const checkPassword = await bcrypt.compare(password, user.password);
 
         if (!checkPassword) {

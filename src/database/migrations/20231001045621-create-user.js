@@ -5,18 +5,14 @@ module.exports = {
     await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       name: {
         type: Sequelize.STRING
       },
       password: {
-        type: Sequelize.STRING,
-        allowNull:true
-      },
-      googleId: {
         type: Sequelize.STRING,
         allowNull:true
       },
@@ -32,8 +28,8 @@ module.exports = {
         allowNull:true,
       },
       user_types_id: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         references: {
           model: 'UserTypes',

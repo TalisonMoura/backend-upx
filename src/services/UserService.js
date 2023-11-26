@@ -49,8 +49,7 @@ class UserService extends ResponseTrait {
             hashedPassword,
             cpf,
             email,
-            image,
-            null
+            image
         );
 
         return this.responseSuccessCreated('Usuário criado com sucesso');

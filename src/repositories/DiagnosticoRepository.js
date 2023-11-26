@@ -1,4 +1,4 @@
-const { Diagnostico } = require('../database/models');
+const { Diagnostico } = require('../database/models/Diagnostico');
 
 class DiagnosticoRepository {
     /**
@@ -8,7 +8,8 @@ class DiagnosticoRepository {
      * @param materials
      * @returns {Promise<Model<any, TModelAttributes>>}
      */
-    async createDiagnostico(ativoId, userId, report, materials) {
+    
+    async registerDiagnostico(ativoId, userId, report, materials) {
 
         return await Diagnostico.create({
             ativoId,
