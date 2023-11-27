@@ -22,18 +22,19 @@ class DiagnosticoService extends ResponseTrait
         return this.responseSuccessCreated('Diagnostico criado com sucesso');
     }
 
-    async getAllDisgnostico(ativoId)
+    async getAllDiagnostico(ativoId)
     {
         if(!ativoId)
         {
             return this.responseRequiredFields();
         }
 
-        const result = DiagnosticoRepository.getAllDisgnostico(ativoId)
+        const result = DiagnosticoRepository.getAllDiagnostico(ativoId)
         if (result === null) 
         {
             return this.responseDiagnosticoNotFound();
         }
+
         return this.successResponse(result);
     }
 }

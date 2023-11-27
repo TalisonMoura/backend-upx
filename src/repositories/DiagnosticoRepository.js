@@ -1,4 +1,6 @@
 const { Diagnostico } = require('../database/models');
+const { Op } = require("sequelize");
+
 
 class DiagnosticoRepository {
     /**
@@ -19,16 +21,15 @@ class DiagnosticoRepository {
         });
     }
 
-    async getAllDisgnostico(ativoId) 
+    async getAllDiagnostico(ativoId) 
     {
-        const diagnosticos =  await Diagnostico.findAll({
-            attributes: [
-                [Diagnostico.sequelize.fn('DISTINC', Diagnostico.sequelize.col('ativoId')), 'ativoId']
-            ],
-            where: ativoId ? { ativoId } : {},
-            raw: true,
+        return await Diagnostico.findAll({
+            where: { 
+                ativoId: {
+                    [Op.eq]: ativoId
+                }
+            }
         });
-        return diagnosticos.map((x) => x.ativoId)
     }
 }
 
