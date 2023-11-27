@@ -1,4 +1,5 @@
 const DiagnosticoRepository = require('../repositories/DiagnosticoRepository');
+const MessageBrokerService = require('./MessageBrokerService');
 const ResponseTrait = require('../traits/ResponseTrait');
 
 class DiagnosticoService extends ResponseTrait 
@@ -13,9 +14,15 @@ class DiagnosticoService extends ResponseTrait
 
     async createDiagnostico(ativoId, userId, report, materials)
     {
-        if (!ativoId || !userId || !report || !materials) 
+        if (!ativoId || !userId || !report) 
         {
             return this.responseRequiredFields();
+        }
+
+        if(materials != null)
+        {
+            await MessageBrokerService.sendMessageToQueue(materials);
+            await MessageBrokerService.receivedAndSendEmail();
         }
 
         await DiagnosticoRepository.registerDiagnostico(ativoId, userId, report, materials);
