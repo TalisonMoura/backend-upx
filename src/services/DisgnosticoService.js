@@ -8,7 +8,7 @@ class DiagnosticoService extends ResponseTrait
      * @param ativoId
      * @param userId
      * @param report
-     * @param materials
+     * @param materials?
      * @returns {Promise<{data: {ok: boolean, message: string}, status: number}>}
      */
 
@@ -21,8 +21,7 @@ class DiagnosticoService extends ResponseTrait
 
         if(materials != null)
         {
-            await MessageBrokerService.sendMessageToQueue(materials);
-            await MessageBrokerService.receivedAndSendEmail();
+            await MessageBrokerService.sender(materials);
         }
 
         await DiagnosticoRepository.registerDiagnostico(ativoId, userId, report, materials);

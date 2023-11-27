@@ -1,51 +1,25 @@
-const { rabbitMQConfig, emailConfig } = require('../config');
 const nodemailer = require('nodemailer');
-const amqp = require('amqplib');
-
 class MessageBrokerService {
-
-    async sendMessageToQueue(message) {
-        const connection = await amqp.connect(rabbitMQConfig.url);
-        const channel = await connection.createChannel();
-        const queue = rabbitMQConfig.queue;
-
-        channel.assertQueue(queue, { durable: false });
-        channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
-
-        setTimeout(() => connection.close(), 500);
-    };
-
-    async receivedAndSendEmail() {
-        const connection = await amqp.connect(rabbitMQConfig.url);
-        const channel = await connection.createChannel();
-        const queue = rabbitMQConfig.queue;
-
-        channel.assertQueue(queue, { durable: false });
-        console.log(`Aguardando mensagens na fila ${queue}`);
-
-        channel.consume(queue, (message) => {
-            const user = JSON.parse(message.content.toString());
-            sendWelcomeEmail(user);
-        }, { noAck: true });
-    };
-
-    async sendEmail(materials) {
-        const transporter = nodemailer.createTransport(emailConfig);
-
-        const mailOptions = {
-        from: emailConfig.auth.user,
-        to: 'keepcontrolcompras@gmail.com',
-        subject: 'Materiais para cotação',
-        text: `Olá, seque a lista para cotação de materiais para manutenção:\n${materials}`,
-        };
-
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-              console.error('Erro ao enviar o email:', error);
-            } else {
-              console.log('Email enviado:', info.response);
+   
+    async sender(message) {
+        const transport = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
+            auth: {
+                user: process.env.FROM_EMAIL,
+                pass: process.env.EMAIL_PASS,
             }
         });
+
+        transport.sendMail({
+            from: `Keep Control <${process.env.FROM_EMAIL}>`,
+            to: process.env.TO_EMAIL,
+            subject: 'Orçamento para cotação de materiais',
+            html: `<h1>Lista para cotação</h1> <p>${message}</p>`,
+        })
+        .then(() => console.log('Email enviado com sucesso'))
+        .catch(() => console.log('Erro ao enviar email: ', err));
     }
 }
 
