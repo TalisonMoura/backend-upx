@@ -1,3 +1,4 @@
+const { rabbitMQConfig, emailConfig } = require('../config');
 const nodemailer = require('nodemailer');
 const amqp = require('amqplib');
 
@@ -28,14 +29,14 @@ class MessageBrokerService {
         }, { noAck: true });
     };
 
-    async sendEmail(department) {
+    async sendEmail(materials) {
         const transporter = nodemailer.createTransport(emailConfig);
 
         const mailOptions = {
-        from: 'keepcontrol@gmail.com',
+        from: emailConfig.auth.user,
         to: 'keepcontrolcompras@gmail.com',
         subject: 'Materiais para cotação',
-        text: `Olá, seque a lista para cotação de materiais para manutenção:\n${department.materials}`,
+        text: `Olá, seque a lista para cotação de materiais para manutenção:\n${materials}`,
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
