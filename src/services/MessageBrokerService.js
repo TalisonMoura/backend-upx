@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 class MessageBrokerService {
    
-    async sender(message) {
+    async sender(materials) {
         const transport = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 465,
@@ -12,14 +12,22 @@ class MessageBrokerService {
             }
         });
 
+        // Será uma possivel implementação caso o front consiga retornar um array de objetos do tipo quantity e name
+        // const htmlContent = await this.generateHTML(materials);
+
         transport.sendMail({
             from: `Keep Control <${process.env.FROM_EMAIL}>`,
             to: process.env.TO_EMAIL,
             subject: 'Orçamento para cotação de materiais',
-            html: `<h1>Lista para cotação</h1> <p>${message}</p>`,
+            html: `<h1>Lista para cotação</h1> <p>${materials}</p>`,
         })
         .then(() => console.log('Email enviado com sucesso'))
         .catch(() => console.log('Erro ao enviar email: ', err));
+    }
+
+    async generateHTML(materials) {
+        const itemsHTML = materials.map((material) => `<li>${material.name}, ${material.quantity}</li>`).join('');
+        return `<h2>Lista para cotação</h2><ol style="font-size: 16px;">${itemsHTML}</ol>`;
     }
 }
 
