@@ -1,4 +1,5 @@
 const { Manutencao } = require('../database/models');
+const { Op } = require("sequelize");
 
 class ManutencaoRepository {
     /**
@@ -18,14 +19,13 @@ class ManutencaoRepository {
 
     async getAllManutencao(ativoId) 
     {
-        const manutencoes =  await Manutencao.findAll({
-            attributes: [
-                [Manutencao.sequelize.fn('DISTINC', Manutencao.sequelize.col('ativoId')), 'ativoId']
-            ],
-            where: ativoId ? { ativoId } : {},
-            raw: true,
+        return await Manutencao.findAll({
+            where: { 
+                ativoId: {
+                    [Op.eq]: ativoId
+                }
+            }
         });
-        return manutencoes.map((x) => x.ativoId)
     }
 }
 

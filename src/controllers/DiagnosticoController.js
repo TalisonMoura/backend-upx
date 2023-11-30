@@ -10,7 +10,7 @@ class DiagnosticoController {
 
             const result = await DiagnosticoService.createDiagnostico(ativoId, userId, report, materials);
 
-            return res.status(result.status).json(result.data)
+            return res.json(result);
 
         }catch(error){
 
@@ -31,7 +31,7 @@ class DiagnosticoController {
 
             const result = await DiagnosticoService.getAllDiagnostico(id);
 
-            return res.status(result.status).json(result.data)
+            return res.json({ data: result });
 
         }catch(error){
 

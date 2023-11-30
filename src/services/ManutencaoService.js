@@ -17,7 +17,8 @@ class ManutencaoService extends ResponseTrait
             return this.responseRequiredFields();
         }
 
-        await ManutencaoRepository.registerManutencao(ativoId, userId, report)
+        await ManutencaoRepository.registerManutencao(ativoId, userId, report);
+
         return this.responseSuccessCreated('Manutenção criada com sucesso');
     }
 
@@ -28,12 +29,12 @@ class ManutencaoService extends ResponseTrait
             return this.responseRequiredFields();
         }
 
-        const result = ManutencaoRepository.getAllDisgnostico(ativoId)
+        const result = await ManutencaoRepository.getAllManutencao(ativoId);
         if (result === null) 
         {
             return this.responseManutencaoNotFound();
         }
-        return this.successResponse(result);
+        return result;
     }
 }
 

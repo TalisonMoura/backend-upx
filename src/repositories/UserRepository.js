@@ -1,4 +1,5 @@
-const {User} = require('../database/models');
+const {User, UserType } = require('../database/models');
+const { Op } = require("sequelize");
 
 class UserRepository {
     /**
@@ -22,13 +23,19 @@ class UserRepository {
 
     /**
      *
-     * @param email
+     * @param cpf
      * @returns {Promise<Model<User, TModelAttributes>>}
      */
-    async findByEmail(email) {
+    async findByCpf(cpf) {
 
         return await User.findOne({
-            where: {email: email}
+            where: {cpf: cpf}
+        });
+    }
+
+    async findUserType(id) {
+        return await UserType.findOne({
+            where: {id: id}
         });
     }
 }

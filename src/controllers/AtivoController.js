@@ -31,7 +31,7 @@ class AtivoController {
             
             const result = await AtivoService.getAtivoById(id);
     
-            return res.status(result.status).json(result.data);
+            return res.json(result);
 
         } catch (error) {
             console.log(error.message);

@@ -5,18 +5,18 @@ const AuthTrait = require('../traits/AuthTrait');
 class LoginService extends AuthTrait {
 
     /**
-     * @param email
+     * @param cpf
      * @param password
      * @returns {Promise<{data: {ok: boolean, message: (*)}, status: number}|{data: {ok: boolean, message: string}, status: number}>}
      */
-    async loginUser(email, password) {
+    async loginUser(cpf, password) {
 
-        if (!password || !email) {
+        if (!password || !cpf) {
 
             return this.responseRequiredFields();
         }
 
-        const user = await UserRepository.findByEmail(email);
+        const user = await UserRepository.findByCpf(cpf);
 
         if (!user) {
 
@@ -32,7 +32,9 @@ class LoginService extends AuthTrait {
 
         await user.updateLastDateAcess();
 
-        return this.generateJwtReturnSuccessAuth(user.id, user.name, user.email, user.image);
+        const role = await UserRepository.findUserType(user.user_types_id);
+
+        return this.generateJwtReturnSuccessAuth(user.id, user.cpf, role.description);
     }
 
     async logout(token){

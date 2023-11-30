@@ -7,14 +7,13 @@ module.exports = class AuthTrait extends ResponseTrait {
 
     /**
      * @param {number} id
-     * @param {string} name
-     * @param {string} email
-     * @param {string} image
+     * @param {string} cpf
+     * @param {string} role
      * @returns {{data: {ok: boolean, message: (*)}, status: number}}
      */
-    generateJwtReturnSuccessAuth(id, name, email, image) {
+    generateJwtReturnSuccessAuth(id, cpf, role) {
 
-        const token = jwt.sign({id, name, email, image}, config.secret, {expiresIn: config.expireIn})
+        const token = jwt.sign({id, cpf, role}, config.secret, {expiresIn: config.expireIn})
 
         return this.responseSuccess(token);
     }

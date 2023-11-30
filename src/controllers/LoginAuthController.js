@@ -7,8 +7,8 @@ class GoogleAuthController {
 
         try {
 
-            const {email, password} = req.body;
-            const result = await LoginService.loginUser(email, password);
+            const { cpf, password } = req.body;
+            const result = await LoginService.loginUser(cpf, password);
 
             return res.status(result.status).json(result.data)
 
