@@ -1,8 +1,6 @@
 const jwt = require("jsonwebtoken");
-const config = require("../config/Auth");
 require('dotenv').config();
 const ResponseTrait = require('./ResponseTrait');
-
 module.exports = class AuthTrait extends ResponseTrait {
 
     /**
@@ -13,7 +11,7 @@ module.exports = class AuthTrait extends ResponseTrait {
      */
     generateJwtReturnSuccessAuth(id, cpf, role) {
 
-        const token = jwt.sign({id, cpf, role}, config.secret, {expiresIn: config.expireIn})
+        const token = jwt.sign({id, cpf, role}, process.env.SECRET, { expiresIn: process.env.EXPIRES_IN })
 
         return this.responseSuccess(token);
     }
