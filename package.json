@@ -11,6 +11,9 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "18.18.0"
+  },
   "dependencies": {
     "amqplib": "^0.10.3",
     "axios": "^1.6.2",
