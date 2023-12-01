@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-
 const {promisify} = require('util');
 
 module.exports = async (req, res, next) => {
@@ -25,6 +24,14 @@ module.exports = async (req, res, next) => {
                 error: true,
                 code: 130,
                 message: "Your token is expire"
+            });
+        }
+
+        if (decode.role != 'admin'){
+            return res.status(401).json({
+                error: true,
+                code: 130,
+                message: "Your are not authorized"
             });
         }
 
