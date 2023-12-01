@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const config = require("../config/Auth");
 
 const {promisify} = require('util');
 
@@ -18,7 +17,7 @@ module.exports = async (req, res, next) => {
 
     try {
 
-        const decode = await promisify(jwt.verify)(token, config.secret);
+        const decode = await promisify(jwt.verify)(token, process.env.SECRET);
 
         if (!decode) {
 

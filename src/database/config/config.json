@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "keep_control_orzx_user",
+    "password": "u4N6eHkuYCDh8edQYNNMV1NFDWxbR75J",
+    "database": "keep_control_orzx",
+    "host": "dpg-clkvjjuaov6s73f0j090-a.ohio-postgres.render.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}
