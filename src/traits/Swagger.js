@@ -74,7 +74,8 @@
  *         required: true
  *         description: ID do ativo
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *     responses:
  *       '200':
  *         description: Sucesso
@@ -153,7 +154,8 @@
  *         required: true
  *         description: ID do diagnóstico
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *     responses:
  *       '200':
  *         description: Sucesso
@@ -196,7 +198,8 @@
  *         required: true
  *         description: ID da manutenção
  *         schema:
- *           type: integer
+ *           type: string
+ *           format: uuid
  *     responses:
  *       '200':
  *         description: Sucesso
