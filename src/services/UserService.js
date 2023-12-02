@@ -15,7 +15,7 @@ class UserService extends ResponseTrait {
      */
     async createUserWithEncryptedPassword(name, password, cpf, email, image, confirm_password) {
 
-        if (!name || !password || !email || !confirm_password) {
+        if (!name || !password || !email || !confirm_password || !cpf) {
 
             return this.responseRequiredFields();
         }
@@ -35,11 +35,11 @@ class UserService extends ResponseTrait {
             return this.responseUnprocessable("A senha e a confirmação de senha não correspondem. Certifique-se de que ambas as senhas sejam iguais.")
         }
 
-        const userByEmail = await UserRepository.findByEmail(email);
+        const userByCpf = await UserRepository.findByCpf(cpf);
 
-        if (userByEmail) {
+        if (userByCpf) {
 
-            return this.responseReadyUsed("O e-mail especificado já está em uso por outro usuário");
+            return this.responseReadyUsed("This user already exist");
         }
 
         const hashedPassword = await bcrypt.hash(password, 8);

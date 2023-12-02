@@ -23,11 +23,11 @@ const options = {
       components: {
         securitySchemes: {
           Bearer: {
-            type: 'apiKey',
+            name: "Bearer",
+            scheme: "bearer",
             description: 'JWT Authorization header using the Bearer scheme',
-            name: 'Authorization',
-            in: 'header',
-            scheme: 'Bearer',
+            in: "header",
+            type: "http",
           },
         },
       },
