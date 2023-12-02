@@ -28,10 +28,10 @@ module.exports = async (req, res, next) => {
         }
 
         if (decode.role != 'admin'){
-            return res.status(401).json({
+            return res.status(403).json({
                 error: true,
                 code: 130,
-                message: "Your are not authorized"
+                message: "Unauthorized"
             });
         }
 
