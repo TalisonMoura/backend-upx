@@ -400,9 +400,6 @@
  *         department:
  *           type: string
  *           description: Departamento associado ao ativo
- *         location:
- *           type: string
- *           description: Localização do ativo
  *         manufacturingDate:
  *           type: string
  *           format: date
@@ -415,6 +412,5 @@
  *         - tipo
  *         - model
  *         - department
- *         - location
  *         - manufacturingDate
  */

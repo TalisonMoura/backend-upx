@@ -12,12 +12,12 @@ class DiagnosticoRepository {
      */
     
     async registerDiagnostico(ativoId, userId, report, materials) {
-
+        const materialJson = JSON.stringify(materials);
         return await Diagnostico.create({
             ativoId,
             userId,
             report,
-            materials
+            materials: materialJson
         });
     }
 

@@ -11,7 +11,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        defaultValue: Sequelize.UUIDV4
       },
       name: {
         allowNull: false,
@@ -38,7 +38,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       location: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       manufacturingDate: {

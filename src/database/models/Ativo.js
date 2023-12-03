@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     userId: {
       type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      defaultValue: Sequelize.UUIDV4
     },
     name: DataTypes.STRING,
     numserie: DataTypes.STRING,
@@ -22,7 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     tipo: DataTypes.STRING,
     model: DataTypes.STRING,
     department: DataTypes.STRING,
-    location: DataTypes.STRING,
+    location: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     manufacturingDate: DataTypes.DATE,
     createdAt: {
       type: DataTypes.DATE,

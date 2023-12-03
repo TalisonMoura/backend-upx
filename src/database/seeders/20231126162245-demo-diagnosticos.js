@@ -10,12 +10,12 @@ module.exports = {
           ativoId: 'b3f5e9d7-4c8a-1e2b-8a2c-5bafce9d7a1b',
           userId: 'e5f3c9d2-b1e2-4b8a-b1c1-5a3f8e6c9d2b',
           report: 'executar reparos daqui 1 semana',
-          materials: [
+          materials: JSON.stringify([
             { quantity: 10, name: 'bomba de vaso' },
             { quantity: 20, name: 'bomba de bico' },
             { quantity: 30, name: 'bomba de vela' },
-            { quantity: 40, name: 'bomba de teto' }
-          ],
+            { quantity: 40, name: 'bomba de teto' },
+          ]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -24,12 +24,12 @@ module.exports = {
           ativoId: 'b3f5e9d7-4c8a-1e2b-8a2c-5bafce9d7a1b',
           userId: 'e5f3c9d2-b1e2-4b8a-b1c1-5a3f8e6c9d2b',
           report: 'executar reparos daqui 1 semana',
-          materials: [
+          materials: JSON.stringify([
             { quantity: 70, name: 'viação cipo' },
             { quantity: 20, name: 'viação cipo' },
             { quantity: 40, name: 'viação cipo' },
-            { quantity: 30, name: 'viação cipo' }
-          ],
+            { quantity: 30, name: 'viação cipo' },
+          ]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -38,12 +38,12 @@ module.exports = {
           ativoId: 'e3da7a0b-2d6f-4157-b7ac-df6b733737bd',
           userId: 'c9d8a7e6-4a1f-4ea1-bdd8-86512c8b14a3',
           report: 'bomba com óleo obsoleto',
-          materials: [
+          materials: JSON.stringify([
             { quantity: 15, name: 'the noite' },
             { quantity: 35, name: 'the noite' },
             { quantity: 40, name: 'the noite' },
-            { quantity: 16, name: 'the noite' }
-          ],
+            { quantity: 16, name: 'the noite' },
+          ]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -52,12 +52,12 @@ module.exports = {
           ativoId: 'e3da7a0b-2d6f-4157-b7ac-df6b733737bd',
           userId: 'c9d8a7e6-4a1f-4ea1-bdd8-86512c8b14a3',
           report: 'falta de gaz nos compartimentos hidráulicos',
-          materials: [
+          materials: JSON.stringify([
             { quantity: 21, name: 'bancada democratica' },
             { quantity: 18, name: 'bancada democratica' },
             { quantity: 34, name: 'bancada democratica' },
-            { quantity: 27, name: 'bancada democratica' }
-          ],
+            { quantity: 27, name: 'bancada democratica' },
+          ]),
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -66,12 +66,12 @@ module.exports = {
           ativoId: 'f6e2a8d9-1b8c-4a75-9f3d-2c7fe6e1a5d3',
           userId: '1e2b8c5a-1d9e-4b8a-b1c1-5a3f8e6c9d2b',
           report: 'propulsores danificados',
-          materials: [
-            { quantity: 17, name: 'bomba de injeção' },
-            { quantity: 26, name: 'bomba de injeção' },
-            { quantity: 14, name: 'bomba de injeção' },
-            { quantity: 32, name: 'bomba de injeção' }
-          ],
+          materials: JSON.stringify([
+            { quantity: 21, name: 'bancada democratica' },
+            { quantity: 18, name: 'bancada democratica' },
+            { quantity: 34, name: 'bancada democratica' },
+            { quantity: 27, name: 'bancada democratica' },
+          ]),
           createdAt: new Date(),
           updatedAt: new Date()
         },

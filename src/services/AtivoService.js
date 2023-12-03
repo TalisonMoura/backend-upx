@@ -18,7 +18,7 @@ class AtivoService extends ResponseTrait
 
     async createAtivo(userId, name, numserie, manufacturer, tipo, model, department, location, manufacturingDate)
     {
-        if (!userId || !name || !numserie || !manufacturer || !tipo || !model || !department || !location || !manufacturingDate) 
+        if (!userId || !name || !numserie || !manufacturer || !tipo || !model || !department || !manufacturingDate) 
         {
             return this.responseRequiredFields();
         }
