@@ -322,7 +322,13 @@
  *         materials:
  *           type: array
  *           items:
- *             type: string
+ *             oneOf:
+ *               - type: object
+ *                 properties:
+ *                   quantity:
+ *                     type: integer
+ *                   name:
+ *                     type: string
  *           description: Lista de materiais usados no diagnóstico
  *       required:
  *         - ativoId
