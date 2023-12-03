@@ -21,14 +21,8 @@ module.exports = {
         type: Sequelize.STRING(4000)
       },
       materials: {
-        type: DataTypes.JSONB,
+        type: Sequelize.JSON,
         allowNull: true,
-      },
-      createdAt: {
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     report: DataTypes.STRING,
     materials: {
-      type: DataTypes.JSONB,
+      type: DataTypes.JSON,
       allowNull: true,
     },
     createdAt: {
