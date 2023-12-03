@@ -29,7 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: Sequelize.UUIDV4,
     },
     report: DataTypes.STRING,
-    materials: DataTypes.STRING,
+    materials: {
+      type: DataTypes.JSONB,
+      allowNull: true,
+    },
     createdAt: {
       type: DataTypes.DATE,
       defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
