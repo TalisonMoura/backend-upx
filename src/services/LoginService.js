@@ -34,7 +34,14 @@ class LoginService extends AuthTrait {
 
         const role = await UserRepository.findUserType(user.user_types_id);
 
-        return this.generateJwtReturnSuccessAuth(user.id, user.cpf, role.description);
+        const token = this.generateJwtReturnSuccessAuth(user.id, user.cpf, role.description);
+        
+        const userTokenObject = {
+            userId: user.id,
+            token: token,
+        };
+
+        return userTokenObject
     }
 
     async logout(token){
