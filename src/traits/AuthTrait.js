@@ -13,6 +13,6 @@ module.exports = class AuthTrait extends ResponseTrait {
 
         const token = jwt.sign({id, cpf, role}, process.env.SECRET, { expiresIn: process.env.EXPIRES_IN })
 
-        return this.responseSuccess(token);
+        return token;
     }
 }
